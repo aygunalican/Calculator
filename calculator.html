@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accessible Calculator</title>
+  <link rel="stylesheet" href="calc.css">
+</head>
+<body>
+
+  <!-- This is accesible calculator also for blind people, so it can sound the result to them.
+   also in Real projects it have braille alphabet. It have  been designedd like its  letters, 
+   so they can touch the buttons and write them -->
+  <main class="calc" aria-labelledby="calcTitle">
+    <h1 id="calcTitle" class="visually-hidden">Accessible Calculator — speaks results</h1>
+
+    <div class="display" role="region" aria-label="Calculator display">
+      <div class="expr" id="expression" aria-live="polite">0</div>
+      <div class="result" id="result" aria-live="polite">0</div>
+    </div>
+
+    <div class="controls">
+      <div>
+        <label for="lang" class="visually-hidden">Language</label>
+        <select id="lang" class="lang-select" aria-label="Select speech language">
+          <option value="en-US">English (EN)</option>
+          <option value="az-AZ">Azerbaijani (AZ)</option>
+        </select>
+      </div>
+      <div>
+        <button id="clearBtn">Clear / Təmizlə</button>
+      </div>
+    </div>
+
+    <div class="keys" role="group" aria-label="Calculator keys">
+      <button data-key="7">7</button>
+      <button data-key="8">8</button>
+      <button data-key="9">9</button>
+      <button class="op" data-key="/">÷</button>
+
+      <button data-key="4">4</button>
+      <button data-key="5">5</button>
+      <button data-key="6">6</button>
+      <button class="op" data-key="*">×</button>
+
+      <button data-key="1">1</button>
+      <button data-key="2">2</button>
+      <button data-key="3">3</button>
+      <button class="op" data-key="-">−</button>
+
+      <button data-key="0">0</button>
+      <button data-key=".">.</button>
+      <button id="equals" class="equal" data-key="=">=</button>
+      <button class="op" data-key="+">+</button>
+    </div>
+
+    <div id="ariaAnnouncer" class="visually-hidden" aria-live="assertive"></div>
+  </main>
+
+  <script src="calc.js"></script>
+</body>
+</html>
